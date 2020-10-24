@@ -1,0 +1,39 @@
+  body{
+  background-color: rgb(255, 255, 255);
+}
+
+.content{
+    font-weight: 800;
+
+  position: relative;
+  font-size: 3.7em;
+    text-align: center;                 
+
+  font-family: 'Inter', sans-serif;
+color: rgb(0, 0, 0);
+}
+button:hover{
+          box-shadow: -6px 6px 20px rgba(0, 0, 0, 0);
+
+transition-duration: 0.5s;
+  
+}
+
+button{
+  text-align: center;
+    padding-left: 2rem; 
+
+    padding-right: 2rem; 
+    cursor: pointer;
+    font-size: 1em;
+
+    padding-top: 16px;
+    border-radius: 10px;
+    padding-bottom: 16px; 
+        box-shadow: -6px 6px 20px rgba(0, 0, 0, 0.13);
+
+  background-color: transparent;
+  border: 0px rgb(0, 0, 0);
+  margin-left: 45%;
+  position: relative;
+}
