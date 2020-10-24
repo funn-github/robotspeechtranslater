@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+        <script src="app.js"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+    <script src="app.js"></script>
+    <button class="talk">talk</button>
+            <h3 class="content"></h3>
+
+
+
+    <script>
+      const btn = document.querySelector('.talk');
+      const content = document.querySelector('.content');
+
+const greetings = ['welp i did it', 'ok'];
+const weather = ['its fine', 'no']
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      
+
+      recognition.onstart = function () {
+        console.log('hello fwend');
+      }; 
+
+recognition.onresult = function(event) {
+  const current = event.resultIndex;
+
+  const transcript = event.results[current][0].transcript;
+  content.textContent = transcript;
+  readOutLoud(transcript);
+
+};
+
+btn.addEventListener('click', () => {
+  recognition.start();
+});
+
+
+function readOutLoud(message) {
+  const speech = new SpeechSynthesisUtterance();
+
+    speech.text = message;
+
+
+if(message.includes('cheese 123')){
+  const finalText = greetings[Math.floor(Math.random() * greetings.length)]
+  speech.text = finalText;
+}
+
+if(message.includes('how are you')){
+  const finalext = weather[Math.floor(Math.random() * weather.length)]
+  speech.text = finalext;
+}
+
+
+  speech.volume = 1;
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  window.speechSynthesis.speak(speech);
+};
+
+    </script>
+    
+  </body>
+</html>
